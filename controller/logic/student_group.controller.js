@@ -44,6 +44,25 @@ exports.updateStudent_group = (req, res, next) => {
     });
 };
 
+exports.getAll = (req, res, next) => {
+
+    student_groupDto.getAll({}, (err, data) => {
+        if (err) {
+            return res.status(400).json(
+                {
+                    error: err
+                }
+            );
+        }
+        res.status(200).json(
+            {
+                info: data
+            }
+        );
+    });
+};
+
+
 exports.deleteStudent_group = (req, res, next) => {
     student_groupDto.delete({ _id: req.body.id }, (err, data) => {
         if (err) {

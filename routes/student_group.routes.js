@@ -3,7 +3,7 @@ const controller = require("../controller/logic/student_group.controller")
 
 module.exports = (app) => {
 
-     app.post("/sg", (req, res, next) => {
+     app.post("/studentgroup", (req, res, next) => {
          console.log("Successfully created course");
          controller.createStudent_group(req, res, next);
      });
@@ -12,6 +12,10 @@ module.exports = (app) => {
          console.log("Updated course data");
          controller.updateStudent_group(req, res, next);
      });
+
+    app.get("/studentgroup", (req, res, next) =>{
+        controller.getAll(req, res, next)
+    })
      
      app.delete("/studentgroup", (req, res, next) => {
          console.log("successfully eliminated course");
